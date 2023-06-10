@@ -1,0 +1,44 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "exportAsImage.useCurrentScale": true,
+    "exportAsImage.visibleLayersOnly": false,
+    "file.lastUsedOpenFilter": "Todos los archivos (*)",
+    "fileStates": {
+        "eroe2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "goblinEnemigo1400.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "puno.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/34618/Desktop/TFG-RPG/Imagenes",
+    "map.height": 1,
+    "map.tileHeight": 106,
+    "map.tileWidth": 106,
+    "map.width": 1,
+    "openFiles": [
+    ],
+    "project": "imagenGoblinBat.tiled-project",
+    "recentFiles": [
+        "eroe2.tsx",
+        "goblinEnemigo1400.tsx",
+        "puno.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 106,
+        "width": 106
+    }
+}

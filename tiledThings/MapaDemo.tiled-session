@@ -1,0 +1,89 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "puño.tsx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "exportAsImage.useCurrentScale": true,
+    "file.lastUsedOpenFilter": "Todos los archivos (*)",
+    "fileStates": {
+        ":/automap-tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "ColisionBloq.tsx": {
+            "scaleInDock": 1
+        },
+        "Heroe2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "InteriorCasa.tmx": {
+            "scale": 3,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 156.16666666666663,
+                "y": 85.16666666666666
+            }
+        },
+        "MapaDemo.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 16,
+            "viewCenter": {
+                "x": 319.66666666666663,
+                "y": 479.66666666666663
+            }
+        },
+        "goblinEnemigo1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "puño.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "styleMapaBatalla.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "styleMapaBatalla32.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "styleShitDemo.tsx": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/34618/Desktop/TFG-RPG/MapasBits",
+    "last.externalTilesetPath": "C:/Users/34618/Desktop/TFG-RPG/Imagenes",
+    "last.imagePath": "C:/Users/34618/Desktop/TFG-RPG/Imagenes",
+    "map.height": 1,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 32,
+    "map.tileWidth": 32,
+    "map.width": 1,
+    "openFiles": [
+        "styleMapaBatalla.tsx",
+        "styleMapaBatalla32.tsx",
+        "puño.tsx"
+    ],
+    "project": "MapaDemo.tiled-project",
+    "recentFiles": [
+        "styleMapaBatalla.tsx",
+        "styleMapaBatalla32.tsx",
+        "puño.tsx",
+        "goblinEnemigo1.tsx",
+        "Heroe2.tsx",
+        "InteriorCasa.tmx",
+        "MapaDemo.tmx"
+    ],
+    "tileset.lastUsedFilter": "Archivos de conjuntos de patrones Tiled (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 32,
+        "width": 32
+    }
+}

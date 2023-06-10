@@ -1,0 +1,107 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "exportAsImage.useCurrentScale": true,
+    "exportAsImage.visibleLayersOnly": true,
+    "file.lastUsedOpenFilter": "Todos los archivos (*)",
+    "fileStates": {
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/ColisionBloq.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/InteriorCasa.tmx": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 96,
+                "y": 64.125
+            }
+        },
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/MapaDemo.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 16,
+            "viewCenter": {
+                "x": 129,
+                "y": 219
+            }
+        },
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/bolaDoFogo.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/cueva.tmx": {
+            "scale": 3,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 122.5,
+                "y": 108.5
+            }
+        },
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/inmortalAnimacion.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/styleMapaBatalla.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/styleMapaBatalla32.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/styleShitDemo.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/troll.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "puno.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/34618/Desktop/TFG-RPG/MapasBits",
+    "last.externalTilesetPath": "C:/Users/34618/Desktop/TFG-RPG/tiledThings",
+    "last.imagePath": "C:/Users/34618/Desktop/TFG-RPG/Imagenes",
+    "map.height": 25,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 30,
+    "openFiles": [
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/MapaDemo.tmx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/styleShitDemo.tsx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/ColisionBloq.tsx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/cueva.tmx"
+    ],
+    "project": "",
+    "recentFiles": [
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/MapaDemo.tmx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/styleShitDemo.tsx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/ColisionBloq.tsx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/cueva.tmx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/styleMapaBatalla32.tsx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/troll.tsx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/inmortalAnimacion.tsx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/styleMapaBatalla.tsx",
+        "C:/Users/34618/Desktop/TFG-RPG/tiledThings/bolaDoFogo.tsx",
+        "puno.tsx",
+        "eroe2.tsx",
+        "goblinEnemigo1400.tsx"
+    ],
+    "tileset.lastUsedFilter": "Archivos de conjuntos de patrones Tiled (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
