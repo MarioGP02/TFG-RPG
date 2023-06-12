@@ -3,12 +3,13 @@ $servidor  = "containers.railway.app";
 $basedatos = "railway";
 $usuario   = "root";
 $password  = "Ofv0F6dbrYrSGrAY0zgN";
+$puerto = "5696";
 
 $datosJSON = $_GET["heroe"];
 
 $heroe = json_decode($datosJSON);
 
-$conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mysqli_error($conexion));
+$conexion = mysqli_connect($servidor, $usuario, $password,$basedatos,$puerto) or die(mysqli_error($conexion));
 mysqli_set_charset($conexion,"utf8");
 
 
