@@ -1,8 +1,8 @@
 <?php
-$servidor = "localhost";
-$basedatos = "tfg-rpg";
+$servidor = "containers.railway.app";
+$basedatos = "railway";
 $usuario = "root";
-$password = "";
+$password = "Ofv0F6dbrYrSGrAY0zgN";
 
 //datos de entrada
 $datosJSON = $_POST["datosJugador"];
