@@ -3,6 +3,7 @@ $servidor = "containers.railway.app";
 $basedatos = "railway";
 $usuario = "root";
 $password = "Ofv0F6dbrYrSGrAY0zgN";
+$puerto = "5696";
 
 //datos de entrada
 $datosJSON = $_POST["datosJugador"];
@@ -11,7 +12,7 @@ $datosJSON = $_POST["datosJugador"];
 $jugador = json_decode($datosJSON);
 
 //Creamos la conexion del servidor
-$conexion = mysqli_connect($servidor,$usuario,$password,$basedatos) or die(mysqli_error($conexion));
+$conexion = mysqli_connect($servidor,$usuario,$password,$basedatos,$puerto) or die(mysqli_error($conexion));
 mysqli_set_charset($conexion,"utf8");
 
 $sql = "INSERT INTO jugador (nombre,email) VALUES ('$jugador->nombre','$jugador->email');";
