@@ -1,6 +1,6 @@
 //Ataques Heore ------------------------------------------------------------------------------------------------------------------------------
 const puno = new Image();
-puno.src = './imagenes/puno.png';
+puno.src = './Imagenes/puno.png';
 let golpe = new Ataque({
     imagen: puno,
     nombre: 'Golpe',
@@ -15,7 +15,7 @@ let golpe = new Ataque({
 });
 
 const bolaDoFogo = new Image();
-bolaDoFogo.src = './imagenes/bolaDoFogo.png';
+bolaDoFogo.src = './Imagenes/bolaDoFogo.png';
 let bolaFuego = new Ataque({
     imagen: bolaDoFogo,
     nombre: 'BolaFuego',
@@ -31,7 +31,7 @@ let bolaFuego = new Ataque({
 });
 
 const tempano = new Image();
-tempano.src = './imagenes/tempanoHielo.png';
+tempano.src = './Imagenes/tempanoHielo.png';
 let esquirlaHelada = new Ataque({
     imagen:tempano,
     nombre:'Tempano',
@@ -52,7 +52,7 @@ arrayAtaquesHeroe = [golpe,bolaFuego,esquirlaHelada];
 //Ataques Goblin----------------------------------------------------------------------------------------------------------------------------------
 
 const punoGoblin = new Image();
-punoGoblin.src = './imagenes/punoGoblin.png';
+punoGoblin.src = './Imagenes/punoGoblin.png';
 let golpeGoblin = new Ataque({
     imagen:punoGoblin,
     nombre:'GolpeGobin',
@@ -65,7 +65,7 @@ let golpeGoblin = new Ataque({
     tipo:'fisico'
 });
 const imgEscupitajo = new Image();
-imgEscupitajo.src = './imagenes/escupitajoVenenoso.png';
+imgEscupitajo.src = './Imagenes/escupitajoVenenoso.png';
 let escupitajoVenenoso = new Ataque({
     imagen:imgEscupitajo,
     nombre:'EscupitajoVenenoso',
@@ -81,7 +81,7 @@ let escupitajoVenenoso = new Ataque({
 //Ataques ogro-----------------------------------------------------------------------------------------------------------------------------------
 
 const imgPunoOgro = new Image();
-imgPunoOgro.src = './imagenes/punoOgro.png';
+imgPunoOgro.src = './Imagenes/punoOgro.png';
 let aplastaGoblins = new Ataque({
     imagen:imgPunoOgro,
     nombre:'AplastaGoblins',
@@ -95,7 +95,7 @@ let aplastaGoblins = new Ataque({
 });
 
 const imgPieOgro = new Image();
-imgPieOgro.src = './imagenes/pieOgro.png';
+imgPieOgro.src = './Imagenes/pieOgro.png';
 let patadaOgra = new Ataque({
     imagen:imgPieOgro,
     nombre:'PatadaOgra',
@@ -122,7 +122,7 @@ let placaje = new Ataque({
 });
 
 const imgMordisco = new Image();
-imgMordisco.src = './imagenes/mordiscoAbierto.png';
+imgMordisco.src = './Imagenes/mordiscoAbierto.png';
 let mordisco = new Ataque({
     imagen:imgMordisco,
     nombre:'Mordisco',
