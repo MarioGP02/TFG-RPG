@@ -106,7 +106,7 @@ class Inmortal {
       this.lap = 1;
     } else {
       this.lap++
-      document.getElementById('imginmortal').setAttribute('src', './imagenes/frameInmortal' + this.lap + '.png');
+      document.getElementById('imginmortal').setAttribute('src', './Imagenes/frameInmortal' + this.lap + '.png');
 
       if (this.lap == 4) {
         this.lap = 0;
@@ -810,7 +810,7 @@ class Ataque {
                 left: atacado.posicion.x,
                 duration: 1.3,
                 onComplete: () => {
-                  imagenATK.src = './imagenes/mordiscoCerrado.png';
+                  imagenATK.src = './Imagenes/mordiscoCerrado.png';
 
 
                   gsap.to('#vida' + atacado.desc, {
