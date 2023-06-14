@@ -22,7 +22,8 @@ function altaHeroe(nvl,vida,mana,ataque,velocidad,exp,ptosAtrib){
     }
 
     var sParametros = "heroe=" + JSON.stringify(oHeroe);
-
+    
+    console.log(sParametros);
     if(heroeGuardado == 'si'){
 
         $.get("ajax/updateHeroe.php",sParametros, procesoRespuestaUpdateHeroe, "json");
