@@ -31,6 +31,7 @@ function altaJugador(nombreJug,emailJug){
         email: emailJug.trim()
     };
     var sParametros = "datosJugador=" + JSON.stringify(oJugador);
+    console.log(sParametros);
     $.post("ajax/altaJugador.php", sParametros, procesoRespuestaAltaJugador, "json");
 }
 
