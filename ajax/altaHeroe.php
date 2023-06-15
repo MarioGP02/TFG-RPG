@@ -1,9 +1,9 @@
 <?php
-$servidor  = "containers.railway.app";
+$servidor  = "containers-us-west-41.railway.app";
 $basedatos = "railway";
 $usuario   = "root";
-$password  = "Ofv0F6dbrYrSGrAY0zgN";
-$puerto = "5696";
+$password  = "EeRul1MhYOf0jIKMUyCS";
+$puerto = "6801";
 
 $datosJSON = $_GET["heroe"];
 
