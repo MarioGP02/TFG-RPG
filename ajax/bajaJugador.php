@@ -2,7 +2,7 @@
 $servidor  = "containers-us-west-41.railway.app";
 $basedatos = "railway";
 $usuario   = "root";
-$password  = "EeRul1MhYOf0jIKMUyCS ";
+$password  = "EeRul1MhYOf0jIKMUyCS";
 $puerto = "6801";
 
 
