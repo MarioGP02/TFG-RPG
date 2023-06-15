@@ -12,8 +12,8 @@ $datosJSON = $_POST["datosJugador"];
 $jugador = json_decode($datosJSON);
 
 //Creamos la conexion del servidor
-$conexion = mysqli_connect($servidor,$usuario,$password,$basedatos,$puerto) or die(mysqli_error($conexion));
-mysqli_set_charset($conexion,"utf8");
+$conexion = new mysqli($servidor,$usuario,$password,$basedatos,$puerto);
+$conexion->set_charset("utf8");
 
 $sql = "INSERT INTO jugador (nombre,email) VALUES ('$jugador->nombre','$jugador->email');";
 $resultado = mysqli_query($conexion,$sql);
