@@ -12,7 +12,7 @@ $datosJSON = $_POST["datosJugador"];
 $jugador = json_decode($datosJSON);
 
 //Creamos la conexion del servidor
-$conexion = new mysqli($servidor,$usuario,$password,$basedatos,$puerto);
+$conexion = new mysqli("containers-us-west-41.railway.app","root","EeRul1MhYOf0jIKMUyCS","railway","6801");
 $conexion->set_charset("utf8");
 
 $sql = "INSERT INTO jugador (nombre,email) VALUES ('$jugador->nombre','$jugador->email');";
