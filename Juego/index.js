@@ -7,7 +7,7 @@ let gameOver = false;
 //programacion inmortal
 
 const spriteInmortal = new Image();
-spriteInmortal.src = './imagenes/frameInmortal1.png';
+spriteInmortal.src = './Imagenes/frameInmortal1.png';
 let inmortal = new Inmortal({
     posicion: {
         x: 50,
