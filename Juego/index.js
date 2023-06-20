@@ -1243,22 +1243,28 @@ window.addEventListener('keyup', (e) => {
 
 //Programacion botones responsive
 
-
 document.getElementById('btnW').addEventListener('touchstart',(i)=>{
+    while(teclas.w.pulsada && ultimaTecla=='w')
     btnWResponsive();
 });
 document.getElementById('btnA').addEventListener('touchstart',(i)=>{
+    while(teclas.a.pulsada && ultimaTecla=='a')
     btnAResponsive();
 });
-document.getElementById('btnS').addEventListener('touchstart',(i)=>{
+document.getElementById('btnS').addEventListener('touchstar',(i)=>{
+    while(teclas.s.pulsada && ultimaTecla=='s')
     btnSResponsive();
 });
 document.getElementById('btnD').addEventListener('touchstart',(i)=>{
+    while(teclas.d.pulsada && ultimaTecla=='d')
     btnDResponsive();
 });
 
 function btnWResponsive() {
     teclas.w.pulsada = true;
+    teclas.a.pulsada = false;
+    teclas.s.pulsada = false;
+    teclas.d.pulsada = false;
     ultimaTecla = 'w';
     if (batallaEmpezada == false) {
         player.mov = true;
@@ -1291,7 +1297,10 @@ function btnWResponsive() {
     }
 }
 function btnAResponsive() {
+    teclas.w.pulsada = false;
     teclas.a.pulsada = true;
+    teclas.s.pulsada = false;
+    teclas.d.pulsada = false;
     ultimaTecla = 'a';
 
     if (batallaEmpezada == false) {
@@ -1319,7 +1328,10 @@ function btnAResponsive() {
     }
 }
 function btnSResponsive() {
+    teclas.w.pulsada = false;
+    teclas.a.pulsada = false;
     teclas.s.pulsada = true;
+    teclas.d.pulsada = false;
     ultimaTecla = 's';
     if (batallaEmpezada == false) {
         player.mov = true;
@@ -1350,6 +1362,9 @@ function btnSResponsive() {
     }
 }
 function btnDResponsive() {
+    teclas.w.pulsada = false;
+    teclas.a.pulsada = false;
+    teclas.s.pulsada = false;
     teclas.d.pulsada = true;
     ultimaTecla = 'd';
     if (batallaEmpezada == false) {
@@ -1377,6 +1392,11 @@ function btnDResponsive() {
     }
 }
 function btnKResponsive() {
+    teclas.w.pulsada = false;
+    teclas.a.pulsada = false;
+    teclas.s.pulsada = false;
+    teclas.d.pulsada = false;
+    ultimaTecla = 'k';
     if (Colision({ objeto1: player, objeto2: goblin }) || Colision({ objeto1: player, objeto2: ogro })) {
         batallaEmpezada = true;
         if (Colision({ objeto1: player, objeto2: goblin })) {
