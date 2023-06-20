@@ -7,7 +7,7 @@ let gameOver = false;
 //programacion inmortal
 
 const spriteInmortal = new Image();
-spriteInmortal.src = './Imagenes/frameInmortal1.png';
+spriteInmortal.src = './imagenes/frameInmortal1.png';
 let inmortal = new Inmortal({
     posicion: {
         x: 50,
@@ -1242,6 +1242,20 @@ window.addEventListener('keyup', (e) => {
 );
 
 //Programacion botones responsive
+
+
+document.getElementById('btnW').addEventListener('keypress',(i)=>{
+    btnWResponsive();
+});
+document.getElementById('btnA').addEventListener('keypress',(i)=>{
+    btnAResponsive();
+});
+document.getElementById('btnS').addEventListener('keypress',(i)=>{
+    btnSResponsive();
+});
+document.getElementById('btnD').addEventListener('keypress',(i)=>{
+    btnDResponsive();
+});
 
 function btnWResponsive() {
     teclas.w.pulsada = true;
