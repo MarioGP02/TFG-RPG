@@ -1244,20 +1244,21 @@ window.addEventListener('keyup', (e) => {
 //Programacion botones responsive
 
 document.getElementById('btnW').addEventListener('touchstart',(i)=>{
-    while(teclas.w.pulsada && ultimaTecla=='w')
-    btnWResponsive();
+    while(teclas.w.pulsada && ultimaTecla=='w'){
+    btnWResponsive();}
 });
 document.getElementById('btnA').addEventListener('touchstart',(i)=>{
-    while(teclas.a.pulsada && ultimaTecla=='a')
-    btnAResponsive();
+    alert('entro');
+    while(teclas.a.pulsada && ultimaTecla=='a'){
+    btnAResponsive();}
 });
 document.getElementById('btnS').addEventListener('touchstar',(i)=>{
-    while(teclas.s.pulsada && ultimaTecla=='s')
-    btnSResponsive();
+    while(teclas.s.pulsada && ultimaTecla=='s'){
+    btnSResponsive();}
 });
 document.getElementById('btnD').addEventListener('touchstart',(i)=>{
-    while(teclas.d.pulsada && ultimaTecla=='d')
-    btnDResponsive();
+    while(teclas.d.pulsada && ultimaTecla=='d'){
+    btnDResponsive();}
 });
 
 function btnWResponsive() {
