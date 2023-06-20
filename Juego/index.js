@@ -1243,22 +1243,45 @@ window.addEventListener('keyup', (e) => {
 
 //Programacion botones responsive
 
-document.getElementById('btnW').addEventListener('touchstart',(i)=>{
-    while(teclas.w.pulsada && ultimaTecla=='w'){
-    btnWResponsive();}
+document.getElementById('btnW').addEventListener('touchstart', (i) => {
+    i = 0;
+    while (teclas.w.pulsada && ultimaTecla == 'w') {
+        btnWResponsive();
+        i++;
+        if (i > 6) {
+            return;
+        }
+    }
 });
-document.getElementById('btnA').addEventListener('touchstart',(i)=>{
-    alert('entro');
-    while(teclas.a.pulsada && ultimaTecla=='a'){
-    btnAResponsive();}
+document.getElementById('btnA').addEventListener('touchstart', (i) => {
+    i=0;
+    while (teclas.a.pulsada && ultimaTecla == 'a') {
+        btnAResponsive();
+        i++;
+        if (i > 6) {
+            return;
+        }
+    }
 });
-document.getElementById('btnS').addEventListener('touchstar',(i)=>{
-    while(teclas.s.pulsada && ultimaTecla=='s'){
-    btnSResponsive();}
+document.getElementById('btnS').addEventListener('touchstar', (i) => {
+    i=0;
+    while (teclas.s.pulsada && ultimaTecla == 's') {
+        btnSResponsive();
+        i++;
+        if(i>6){
+            return;
+        }
+    }
 });
-document.getElementById('btnD').addEventListener('touchstart',(i)=>{
-    while(teclas.d.pulsada && ultimaTecla=='d'){
-    btnDResponsive();}
+document.getElementById('btnD').addEventListener('touchstart', (i) => {
+    i=0;
+    while (teclas.d.pulsada && ultimaTecla == 'd') {
+        btnDResponsive();
+        i++;
+        if(i>6){
+            return;
+        }
+    }
 });
 
 function btnWResponsive() {
