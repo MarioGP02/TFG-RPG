@@ -1244,6 +1244,7 @@ window.addEventListener('keyup', (e) => {
 //Programacion botones responsive
 
 document.getElementById('btnW').addEventListener('touchstart', (i) => {
+    btnWResponsive();
     i = 0;
     while (teclas.w.pulsada && ultimaTecla == 'w') {
         btnWResponsive();
@@ -1254,6 +1255,7 @@ document.getElementById('btnW').addEventListener('touchstart', (i) => {
     }
 });
 document.getElementById('btnA').addEventListener('touchstart', (i) => {
+    btnAResponsive();
     i=0;
     while (teclas.a.pulsada && ultimaTecla == 'a') {
         btnAResponsive();
@@ -1264,6 +1266,7 @@ document.getElementById('btnA').addEventListener('touchstart', (i) => {
     }
 });
 document.getElementById('btnS').addEventListener('touchstar', (i) => {
+    btnSResponsive();
     i=0;
     while (teclas.s.pulsada && ultimaTecla == 's') {
         btnSResponsive();
@@ -1274,6 +1277,7 @@ document.getElementById('btnS').addEventListener('touchstar', (i) => {
     }
 });
 document.getElementById('btnD').addEventListener('touchstart', (i) => {
+    btnDResponsive();
     i=0;
     while (teclas.d.pulsada && ultimaTecla == 'd') {
         btnDResponsive();
