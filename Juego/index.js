@@ -7,7 +7,7 @@ let gameOver = false;
 //programacion inmortal
 
 const spriteInmortal = new Image();
-spriteInmortal.src = './Imagenes/frameInmortal1.png';
+spriteInmortal.src = './imagenes/frameInmortal1.png';
 let inmortal = new Inmortal({
     posicion: {
         x: 50,
@@ -18,15 +18,37 @@ let inmortal = new Inmortal({
 });
 inmortal.draw();
 
+
+//Diseño Responsive
+let btonesResponsive = document.getElementById('botonesResponsive');
+let navegador = navigator.userAgent;
+    console.log(navegador);
+    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+        alert("Estás usando un dispositivo móvil!!");
+
+    } else {
+        alert("No estás usando un móvil");
+        btonesResponsive.style.opacity = 0;
+        btonesResponsive.style.position = 'absolute';
+        btonesResponsive.style.top = 700;
+    }
+
+
 //Programacion incio de la aventura
 
 let movimiento = false;
 let pantallaInicial = document.getElementById('pantallaInicial');
 let pantallaJuego = document.getElementById('pantallaJuego');
 let pantallaMejoras = document.getElementById('pantallaMejoras');
+let pantallaAdmin = document.getElementById('pantallaAdmin');
 let NombreJugador;
 let emailJugador;
+
+
+
 function inicioAventura() {
+
+    
     NombreJugador = document.getElementById('inputNombreJugador').value.trim();
     emailJugador = document.getElementById('inputEmailJugador').value.trim();
     let expresionRegularEM = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
@@ -34,11 +56,11 @@ function inicioAventura() {
 
 
     if (!NombreJugador.length == 0 && !emailJugador.length == 0) {
-        if(expresionRegularEM.test(emailJugador)){
-            setStorage(NombreJugador,emailJugador);
+        if (expresionRegularEM.test(emailJugador)) {
+            setStorage(NombreJugador, emailJugador);
             comenzarPartida();
-        }else{
-            alert(emailJugador+' esta mal escrito');
+        } else {
+            alert(emailJugador + ' esta mal escrito');
         }
     } else {
 
@@ -48,6 +70,13 @@ function inicioAventura() {
             alert('Para iniciar debes introducir un nombre de jugador');
         } else {
             if ((!nombreStorage.length == 0 || nombreStorage != null) && (!emailStorage.length == 0 || emailStorage != null)) {
+                console.log(nombreStorage);
+                if (!nombreStorage == 'admin') {
+                    document.getElementById('espAdmin').setAttribute('style', 'opacity:0;');
+                } else {
+                    document.getElementById('espAdmin').setAttribute('style', 'opacity:1;');
+                }
+
                 comenzarPartida();
             }
         }
@@ -76,8 +105,205 @@ function comenzarPartida() {
 
 
 
+//Programacion espacio admin
+let ElemtCreados = false;
+function abrirEspAdmin() {
+    movimiento = false;
+    pantallaAdmin.style.top = 0;
+    gsap.to('#pantallaJuego', {
+        opacity: 0,
+        duration: 2,
+        onComplete: () => {
+            pantallaJuego.style.top = 700;
+        }
+    });
+    gsap.to('#pantallaAdmin', {
+        opacity: 1,
+        duration: 2
+    });
+
+    if (!ElemtCreados) {
+        crearElementosPA();
+    }
+}
+let selectEnemigos = document.createElement('select');
+function crearElementosPA() {
+    pantallaAdmin.appendChild(selectEnemigos);
+    arrayEnemigos.forEach(enemigo => {
+        let optEn = document.createElement('option');
+        optEn.setAttribute('value', enemigo.desc);
+        selectEnemigos.appendChild(optEn);
+        optEn.innerHTML = enemigo.desc;
+    });
+
+    selectEnemigos.setAttribute('onchange', 'cambioSelectEnemigo()');
+
+    let btonReturn = document.createElement('button');
+    btonReturn.setAttribute('onclick', 'returnJuegoA()');
+    btonReturn.innerHTML = '->';
+    btonReturn.style.position = 'absolute';
+    btonReturn.style.left = 1000;
+    pantallaAdmin.appendChild(btonReturn);
+    ElemtCreados = true;
+}
+
+function returnJuegoA() {
+    const tl = gsap.timeline();
+    movimiento = true;
+
+    tl.to('#pantallaAdmin', {
+        opacity: 0,
+        onComplete: () => {
+            pantallaJuego.style.top = 0;
+            pantallaAdmin.style.top = 700;
+            pantallaInicial.style.top = 700;
+        }
+    }).to('#pantallaJuego', {
+        opacity: 1
+    });
+}
+
+let divCont = document.createElement('div');
+let imgEn = document.createElement('img');
+let divVidaE = document.createElement('div');
+let pVidaE = document.createElement('p');
+let btonMasVida = document.createElement('button');
+let btonMenosVida = document.createElement('button');
+let divAtaqueE = document.createElement('div');
+let pAtaqE = document.createElement('p');
+let btonMasAtaq = document.createElement('button');
+let btonMenosAtaq = document.createElement('button');
+let divVelE = document.createElement('div');
+let pVelE = document.createElement('p');
+let btonMasVel = document.createElement('button');
+let btonMenosVel = document.createElement('button');
+
+divCont.style.position = 'absolute';
+divCont.style.top = 250;
+divCont.style.left = 250;
+divVidaE.style.position = 'absolute';
+divVidaE.style.top = 0;
+divVidaE.style.left = 250;
+divAtaqueE.style.position = 'absolute';
+divAtaqueE.style.top = 50;
+divAtaqueE.style.left = 250;
+divVelE.style.position = 'absolute';
+divVelE.style.top = 100;
+divVelE.style.left = 250;
+
+btonMasVida.setAttribute('onclick', 'masVidaE()');
+btonMasVida.innerHTML = '+';
+btonMasVida.style.border = '3px darkgoldenrod solid';
+btonMasVida.style.left = '30';
+btonMenosVida.setAttribute('onclick', 'menosVidaE()');
+btonMenosVida.innerHTML = '-';
+btonMenosVida.style.border = '3px darkgoldenrod solid';
+btonMasAtaq.setAttribute('onclick', 'masAtaqE()');
+btonMasAtaq.innerHTML = '+';
+btonMasAtaq.style.border = '3px darkgoldenrod solid';
+btonMenosAtaq.setAttribute('onclick', 'menosAtaqE()');
+btonMenosAtaq.innerHTML = '-';
+btonMenosAtaq.style.border = '3px darkgoldenrod solid';
+btonMasVel.setAttribute('onclick', 'masVelE()');
+btonMasVel.innerHTML = '+';
+btonMasVel.style.border = '3px darkgoldenrod solid';
+btonMenosVel.setAttribute('onclick', 'menosVelE()');
+btonMenosVel.innerHTML = '-';
+btonMenosVel.style.border = '3px darkgoldenrod solid';
+
+pantallaAdmin.appendChild(divCont);
+divCont.appendChild(imgEn);
+divCont.appendChild(divVidaE);
+divVidaE.appendChild(pVidaE);
+divVidaE.appendChild(btonMasVida);
+divVidaE.appendChild(btonMenosVida);
+divCont.appendChild(divAtaqueE);
+divAtaqueE.appendChild(pAtaqE);
+divAtaqueE.appendChild(btonMasAtaq);
+divAtaqueE.appendChild(btonMenosAtaq);
+divCont.appendChild(divVelE);
+divVelE.appendChild(pVelE);
+divVelE.appendChild(btonMasVel);
+divVelE.appendChild(btonMenosVel);
+
+let enemigoSelect;
+let vidaEnNueva;
+let ataqEnNuevo;
+let velEnNueva;
+function cambioSelectEnemigo() {
+    let vSelectE = selectEnemigos.value;
 
 
+    arrayEnemigos.forEach(enemigo => {
+        if (vSelectE == enemigo.desc) {
+            enemigoSelect = enemigo;
+        }
+    });
+    ;
+    imgEn.src = enemigoSelect.imagenBat.src;
+    imgEn.setAttribute('id', 'img' + enemigoSelect.desc);
+
+    pVidaE.innerHTML = 'Vida:' + enemigoSelect.vidaMax;
+    pAtaqE.innerHTML = 'Ataque:' + enemigoSelect.ataque;
+    pVelE.innerHTML = 'Velocidad:' + enemigoSelect.velocidad;
+
+    let tl = gsap.timeline();
+    tl.to('#img' + enemigoSelect.desc, {
+        scale: 1
+    }).to('#img' + enemigoSelect.desc, {
+        scale: 2.5
+    });
+
+    vidaEnNueva = enemigoSelect.vidaMax;
+    ataqEnNuevo = enemigoSelect.ataque;
+    velEnNueva = enemigoSelect.velocidad;
+}
+
+
+function masVidaE() {
+    vidaEnNueva = vidaEnNueva + 5;
+    pVidaE.innerHTML = 'Vida:' + vidaEnNueva;
+}
+function menosVidaE() {
+    vidaEnNueva = vidaEnNueva - 5;
+    pVidaE.innerHTML = 'Vida:' + vidaEnNueva;
+}
+
+function masAtaqE() {
+    ataqEnNuevo = ataqEnNuevo + 0.5;
+    pAtaqE.innerHTML = 'Ataque:' + ataqEnNuevo;
+}
+function menosAtaqE() {
+    ataqEnNuevo = ataqEnNuevo - 0.5;
+    pAtaqE.innerHTML = 'Ataque:' + ataqEnNuevo;
+}
+
+function masVelE() {
+    velEnNueva = velEnNueva + 1;
+    pVelE.innerHTML = 'Velocidad:' + velEnNueva;
+}
+function menosVelE() {
+    velEnNueva = velEnNueva - 1;
+    pVelE.innerHTML = 'Velocidad:' + velEnNueva;
+}
+
+let btonGuardarCambiosEn = document.createElement('button');
+btonGuardarCambiosEn.setAttribute('onclick', 'guardarCambiosEn()');
+btonGuardarCambiosEn.innerHTML = 'Guardar Cambios en Enemigo';
+btonGuardarCambiosEn.style.position = 'absolute';
+btonGuardarCambiosEn.style.top = 550;
+btonGuardarCambiosEn.style.left = 750;
+
+pantallaAdmin.appendChild(btonGuardarCambiosEn);
+
+function guardarCambiosEn() {
+    enemigoSelect.vidaMax = vidaEnNueva;
+    enemigoSelect.vida = vidaEnNueva;
+    enemigoSelect.ataque = ataqEnNuevo;
+    enemigoSelect.velocidad = velEnNueva;
+
+    alert('Cambios en el enemigo ' + enemigoSelect.desc + ' Guardados');
+}
 
 let divBatInt = document.getElementById('barraAtaques');
 let divBatalla = document.getElementById('divSuperior');
@@ -157,7 +383,7 @@ function animar() {
     entrar.forEach(entrada => {
         entrada.draw();
     });
-    
+
     if (goblin.vida > 0) {
         sombraGoblin.draw();
         goblin.draw();
@@ -175,25 +401,25 @@ function animar() {
 
     altaHierba.forEach(bloqHierba => {
         bloqHierba.draw();
-        
+
         if (Colision({ objeto1: player, objeto2: bloqHierba })) {
-            while(ingDirect>4){
-                
-            if (batAltaHierba) {
-                let randomBat = Math.random();
-                console.log(randomBat);
-                if (randomBat >= 0.99) {
-                    batAltaHierba = false;
-                    CombateHierba();
+            while (ingDirect > 4) {
+
+                if (batAltaHierba) {
+                    let randomBat = Math.random();
+                    console.log(randomBat);
+                    if (randomBat >= 0.99) {
+                        batAltaHierba = false;
+                        CombateHierba();
+
+                    }
 
                 }
-
+                if (ingDirect >= 4) {
+                    ingDirect = 0;
+                }
             }
-            if(ingDirect>=4){
-                ingDirect=0;
-            }
-        }
-        ingDirect++
+            ingDirect++
         }
     })
 
@@ -305,8 +531,8 @@ function animar() {
         }
     }
 
-    if(bolEntrIntUsada){
-        bolEntrExtUsada=false;
+    if (bolEntrIntUsada) {
+        bolEntrExtUsada = false;
     }
 
 
@@ -338,8 +564,8 @@ function animarInterior(entrada) {
             mapaInteior = cuevaMont;
             colisionesInt = bordesCueva;
             entradasInt = entratCueva;
-            MovInterno = [cuevaMont, ...bordesCueva, ...entratCueva,...bloqCama];
-            
+            MovInterno = [cuevaMont, ...bordesCueva, ...entratCueva, ...bloqCama];
+
             break;
     }
 
@@ -350,13 +576,13 @@ function animarInterior(entrada) {
     entradasInt.forEach(entrad => {
         entrad.draw();
     });
-    if(entrada.direccion == 'cueva'){
-        bloqCama.forEach(cama=>{
+    if (entrada.direccion == 'cueva') {
+        bloqCama.forEach(cama => {
             cama.draw();
-            if(Colision({objeto1:player,objeto2:cama})){
+            if (Colision({ objeto1: player, objeto2: cama })) {
                 document.querySelector('#cajaDialogos').innerHTML = 'Pulsa K para descansar y guardar progreso';
-            }else{
-                document.querySelector('#cajaDialogos').innerHTML ='';
+            } else {
+                document.querySelector('#cajaDialogos').innerHTML = '';
             }
         })
     }
@@ -377,7 +603,7 @@ function animarInterior(entrada) {
         }
 
     });
-    
+
     Sombra.draw();
     player.draw();
 
@@ -471,8 +697,8 @@ function animarInterior(entrada) {
         }
     }
 
-    if(bolEntrExtUsada){
-        bolEntrIntUsada=false;
+    if (bolEntrExtUsada) {
+        bolEntrIntUsada = false;
     }
 }
 
@@ -721,20 +947,20 @@ function volverJuego() {
 }
 //Programacion del descanso y guardado de personaje
 
-function descansar(){
-    gsap.to('#divSuperior',{
-        opacity:1,
-        duration:1.5,
-        onComplete:()=>{
+function descansar() {
+    gsap.to('#divSuperior', {
+        opacity: 1,
+        duration: 1.5,
+        onComplete: () => {
             player.vida = player.vidaMax;
             player.mana = player.manaMax;
             document.getElementById('mana').innerHTML = 'Mana:' + player.mana + '/' + player.manaMax;
             gsap.to('#barraMana', {
                 width: 100
-              });
-            gsap.to('#divSuperior',{
-                opacity:0,
-                duration:2
+            });
+            gsap.to('#divSuperior', {
+                opacity: 0,
+                duration: 2
             })
         }
     });
@@ -923,15 +1149,15 @@ window.addEventListener('keydown', (e) => {
                     });
 
                 }
-                
+
                 let bloqOkupado = 0;
-                bloqCama.forEach(cama=>{
-                    if(Colision({objeto1:player,objeto2:cama})){
+                bloqCama.forEach(cama => {
+                    if (Colision({ objeto1: player, objeto2: cama })) {
                         bloqOkupado++;
-                        
+
                     }
                 });
-                if(bloqOkupado == bloqCama.length){
+                if (bloqOkupado == bloqCama.length) {
                     descansar();
                 }
 
@@ -1014,3 +1240,188 @@ window.addEventListener('keyup', (e) => {
     }
 }
 );
+
+//Programacion botones responsive
+
+function btnWResponsive() {
+    teclas.w.pulsada = true;
+    ultimaTecla = 'w';
+    if (batallaEmpezada == false) {
+        player.mov = true;
+        player.direcciones.val = 3;
+        if (bolInterior == true) {
+            animarInterior(entradaUsada);
+        } else {
+            animar();
+        }
+
+
+
+    } if (batallaEmpezada) {
+        if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
+            document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
+        } else {
+            if (recuadroHeroe.letra == 'A') {
+                console.log('Te sales de la batalla');
+            }
+            if (recuadroHeroe.letra == 'B') {
+                recuadroHeroe.letra = 'A';
+            }
+            if (recuadroHeroe.letra == 'C') {
+                recuadroHeroe.letra = 'B';
+            }
+            contTurnoHeroe++;
+            TurnoBatalla++;
+        }
+        animacionBatalla(enemigo);
+    }
+}
+function btnAResponsive() {
+    teclas.a.pulsada = true;
+    ultimaTecla = 'a';
+
+    if (batallaEmpezada == false) {
+        player.mov = true;
+        player.direcciones.val = 2;
+        if (bolInterior == true) {
+            animarInterior(entradaUsada);
+        } else {
+            animar();
+        }
+
+    } if (batallaEmpezada) {
+        if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
+            document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
+        } else {
+            if (recuadroHeroe.numero == 0) {
+                console.log('Te sales de la batalla');
+            } else {
+                recuadroHeroe.numero--;
+            }
+            contTurnoHeroe++;
+            TurnoBatalla++;
+        }
+        animacionBatalla(enemigo);
+    }
+}
+function btnSResponsive() {
+    teclas.s.pulsada = true;
+    ultimaTecla = 's';
+    if (batallaEmpezada == false) {
+        player.mov = true;
+        player.direcciones.val = 0;
+        if (bolInterior == true) {
+            animarInterior(entradaUsada);
+        } else {
+            animar();
+        }
+
+    } if (batallaEmpezada) {
+        if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
+            document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
+        } else {
+            if (recuadroHeroe.letra == 'C') {
+                console.log('Te sales de la batalla');
+            }
+            if (recuadroHeroe.letra == 'B') {
+                recuadroHeroe.letra = 'C';
+            }
+            if (recuadroHeroe.letra == 'A') {
+                recuadroHeroe.letra = 'B';
+            }
+            contTurnoHeroe++;
+            TurnoBatalla++;
+        }
+        animacionBatalla(enemigo);
+    }
+}
+function btnDResponsive() {
+    teclas.d.pulsada = true;
+    ultimaTecla = 'd';
+    if (batallaEmpezada == false) {
+        player.mov = true;
+        player.direcciones.val = 1;
+        if (bolInterior == true) {
+            animarInterior(entradaUsada);
+        } else {
+            animar();
+        }
+
+    } if (batallaEmpezada) {
+        if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
+            document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
+        } else {
+            if (recuadroHeroe.numero == 7) {
+                console.log('Te sales de la batalla');
+            } else {
+                recuadroHeroe.numero++;
+            }
+            contTurnoHeroe++;
+            TurnoBatalla++;
+        }
+        animacionBatalla(enemigo);
+    }
+}
+function btnKResponsive() {
+    if (Colision({ objeto1: player, objeto2: goblin }) || Colision({ objeto1: player, objeto2: ogro })) {
+        batallaEmpezada = true;
+        if (Colision({ objeto1: player, objeto2: goblin })) {
+            participantesBatalla.push(goblin);
+            document.querySelector('#cajaDialogos').innerHTML = 'Combate contra ' + goblin.desc;
+            enemigo = goblin;
+            contTurnoHeroe = 0;
+            contTurnoEnemigo = 0;
+        }
+        else {
+            participantesBatalla.push(ogro);
+            document.querySelector('#cajaDialogos').innerHTML = 'Combate contra ' + ogro.desc;
+            enemigo = ogro;
+            contTurnoHeroe = 0;
+            contTurnoEnemigo = 0;
+        }
+        recuadroHeroe.letra = 'B';
+        recuadroHeroe.numero = 0;
+        recuadroEnemigo.letra = 'B';
+        recuadroEnemigo.numero = 7;
+
+        gsap.to('#divSuperior', {
+            opacity: 1,
+            repeat: 3,
+            yoyo: true,
+            duration: 0.5,
+            onComplete() {
+                gsap.to('#divSuperior', {
+                    opacity: 1,
+                    duration: 0.5,
+                    onComplete() {
+                        animacionBatalla(enemigo);
+                        gsap.to('#divSuperior', {
+                            opacity: 0,
+                            duration: 0.5
+                        });
+                    }
+                });
+
+            }
+        });
+
+    }
+    else {
+        gsap.to('#divSuperior', {
+            opacity: 0
+        });
+
+    }
+
+    let bloqOkupado = 0;
+    bloqCama.forEach(cama => {
+        if (Colision({ objeto1: player, objeto2: cama })) {
+            bloqOkupado++;
+
+        }
+    });
+    if (bloqOkupado == bloqCama.length) {
+        descansar();
+    }
+}
+

@@ -8,39 +8,39 @@ canvas.height = 567;
 const mapa = new Image();
 mapa.src = './Imagenes/MapaDemo.png';
 const atr = new Image();
-atr.src = './Imagenes/AtravesablesDemo.png';
+atr.src = './imagenes/AtravesablesDemo.png';
 const heroe = new Image();
-heroe.src = './Imagenes/eroe2.png';
+heroe.src = './imagenes/eroe2.png';
 const sombra = new Image();
-sombra.src = './Imagenes/sombra2t.png';
+sombra.src = './imagenes/sombra2t.png';
 const interior = new Image();
-interior.src = './Imagenes/InteriorCasa.png';
+interior.src = './imagenes/InteriorCasa.png';
 const cueva = new Image();
-cueva.src = './Imagenes/cueva.png';
+cueva.src = './imagenes/cueva.png';
 const gob = new Image();
-gob.src = './Imagenes/goblinEnemigo1400.png';
+gob.src = './imagenes/goblinEnemigo1400.png';
 const mapBatalla = new Image();
-mapBatalla.src = './Imagenes/CampoBatalla.png';
+mapBatalla.src = './imagenes/CampoBatalla.png';
 const mapBatallaHA = new Image();
-mapBatallaHA.src = './Imagenes/CampBatallaAltaHierba.png';
+mapBatallaHA.src = './imagenes/CampBatallaAltaHierba.png';
 const recuadroImg = new Image();
-recuadroImg.src = './Imagenes/recuadro.png';
+recuadroImg.src = './imagenes/recuadro.png';
 const imgHeroeBat = new Image();
-imgHeroeBat.src = './Imagenes/imagenHeroeBat.png';
+imgHeroeBat.src = './imagenes/imagenHeroeBat.png';
 const imgGoblinBat = new Image();
-imgGoblinBat.src = './Imagenes/imagenGolbinBat.png';
+imgGoblinBat.src = './imagenes/imagenGolbinBat.png';
 const spOgro = new Image();
-spOgro.src = './Imagenes/ogro.png';
+spOgro.src = './imagenes/ogro.png';
 const imgLoboBat = new Image();
-imgLoboBat.src = './Imagenes/lobo.png';
+imgLoboBat.src = './imagenes/lobo.png';
 const imgAlphaBat = new Image();
-imgAlphaBat.src = './Imagenes/loboAlpha.png';
+imgAlphaBat.src = './imagenes/loboAlpha.png';
 const imgSerpienteBat = new Image();
-imgSerpienteBat.src = './Imagenes/serpiente.png';
+imgSerpienteBat.src = './imagenes/serpiente.png';
 const imgJabaliBat = new Image();
-imgJabaliBat.src = './Imagenes/jabali.png';
+imgJabaliBat.src = './imagenes/jabali.png';
 const imgRataBat = new Image();
-imgRataBat.src = './Imagenes/raton.png';
+imgRataBat.src = './imagenes/raton.png';
 
 let offset = {
     x: 0,
@@ -194,6 +194,9 @@ let ratonEn = new Rata({
 
 
 //Arrays
+let arrayEnemigos=[goblin,ogro,loboAlphaEn,loboEn,serpienteEn,ratonEn,jabaliEn];
+
+
 let bordes = []
 let bloqEntrar = [];
 let MapaColisiones = [];
