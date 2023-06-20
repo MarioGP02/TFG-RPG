@@ -24,10 +24,10 @@ let btonesResponsive = document.getElementById('botonesResponsive');
 let navegador = navigator.userAgent;
     console.log(navegador);
     if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-        alert("Estás usando un dispositivo móvil!!");
+        
 
     } else {
-        alert("No estás usando un móvil");
+        
         btonesResponsive.style.opacity = 0;
         btonesResponsive.style.position = 'absolute';
         btonesResponsive.style.top = 700;
