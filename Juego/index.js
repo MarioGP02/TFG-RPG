@@ -1244,16 +1244,16 @@ window.addEventListener('keyup', (e) => {
 //Programacion botones responsive
 
 
-document.getElementById('btnW').addEventListener('keypress',(i)=>{
+document.getElementById('btnW').addEventListener('touchstart',(i)=>{
     btnWResponsive();
 });
-document.getElementById('btnA').addEventListener('keypress',(i)=>{
+document.getElementById('btnA').addEventListener('touchstart',(i)=>{
     btnAResponsive();
 });
-document.getElementById('btnS').addEventListener('keypress',(i)=>{
+document.getElementById('btnS').addEventListener('touchstart',(i)=>{
     btnSResponsive();
 });
-document.getElementById('btnD').addEventListener('keypress',(i)=>{
+document.getElementById('btnD').addEventListener('touchstart',(i)=>{
     btnDResponsive();
 });
 
