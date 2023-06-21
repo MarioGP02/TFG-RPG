@@ -137,12 +137,15 @@ function crearElementosPA() {
     });
 
     selectEnemigos.setAttribute('onchange', 'cambioSelectEnemigo()');
+    selectEnemigos.style.margin='10px';
 
     let btonReturn = document.createElement('button');
     btonReturn.setAttribute('onclick', 'returnJuegoA()');
     btonReturn.innerHTML = '->';
     btonReturn.style.position = 'absolute';
     btonReturn.style.left = 1000;
+    btonReturn.style.margin = '10px';
+    btonReturn.style.border = '5px darkgoldenrod solid';
     pantallaAdmin.appendChild(btonReturn);
     ElemtCreados = true;
 }
@@ -194,22 +197,45 @@ divVelE.style.left = 250;
 btonMasVida.setAttribute('onclick', 'masVidaE()');
 btonMasVida.innerHTML = '+';
 btonMasVida.style.border = '3px darkgoldenrod solid';
-btonMasVida.style.left = '30';
+btonMasVida.style.left = '130';
+btonMasVida.style.top = '10';
+btonMasVida.style.display = 'inline-block';
+btonMasVida.style.position = 'absolute';
 btonMenosVida.setAttribute('onclick', 'menosVidaE()');
 btonMenosVida.innerHTML = '-';
 btonMenosVida.style.border = '3px darkgoldenrod solid';
+btonMenosVida.style.display = 'inline-block';
+btonMenosVida.style.position = 'absolute';
+btonMenosVida.style.left = '165';
+btonMenosVida.style.top = '10';
 btonMasAtaq.setAttribute('onclick', 'masAtaqE()');
 btonMasAtaq.innerHTML = '+';
 btonMasAtaq.style.border = '3px darkgoldenrod solid';
+btonMasAtaq.style.display = 'inline-block';
+btonMasAtaq.style.position = 'absolute';
+btonMasAtaq.style.left = '175';
+btonMasAtaq.style.top = '15';
 btonMenosAtaq.setAttribute('onclick', 'menosAtaqE()');
 btonMenosAtaq.innerHTML = '-';
 btonMenosAtaq.style.border = '3px darkgoldenrod solid';
+btonMenosAtaq.style.display = 'inline-block';
+btonMenosAtaq.style.position = 'absolute';
+btonMenosAtaq.style.left = '212';
+btonMenosAtaq.style.top = '15';
 btonMasVel.setAttribute('onclick', 'masVelE()');
 btonMasVel.innerHTML = '+';
 btonMasVel.style.border = '3px darkgoldenrod solid';
+btonMasVel.style.display = 'inline-block';
+btonMasVel.style.position = 'absolute';
+btonMasVel.style.left = '195';
+btonMasVel.style.top = '17';
 btonMenosVel.setAttribute('onclick', 'menosVelE()');
 btonMenosVel.innerHTML = '-';
 btonMenosVel.style.border = '3px darkgoldenrod solid';
+btonMenosVel.style.display = 'inline-block';
+btonMenosVel.style.position = 'absolute';
+btonMenosVel.style.left = '228';
+btonMenosVel.style.top = '17';
 
 pantallaAdmin.appendChild(divCont);
 divCont.appendChild(imgEn);
@@ -293,6 +319,8 @@ btonGuardarCambiosEn.innerHTML = 'Guardar Cambios en Enemigo';
 btonGuardarCambiosEn.style.position = 'absolute';
 btonGuardarCambiosEn.style.top = 550;
 btonGuardarCambiosEn.style.left = 750;
+btonGuardarCambiosEn.style.margin = '10px';
+btonGuardarCambiosEn.style.border = '5px darkgoldenrod solid';
 
 pantallaAdmin.appendChild(btonGuardarCambiosEn);
 
@@ -1244,10 +1272,9 @@ window.addEventListener('keyup', (e) => {
 //Programacion botones responsive
 
 document.getElementById('btnW').addEventListener('touchstart', (i) => {
-    btnWResponsive();
     i = 0;
     while (teclas.w.pulsada && ultimaTecla == 'w') {
-        btnWResponsive();
+        btnWResponsive(i);
         i++;
         if (i > 6) {
             return;
@@ -1255,10 +1282,9 @@ document.getElementById('btnW').addEventListener('touchstart', (i) => {
     }
 });
 document.getElementById('btnA').addEventListener('touchstart', (i) => {
-    btnAResponsive();
-    i=0;
+    i = 0;
     while (teclas.a.pulsada && ultimaTecla == 'a') {
-        btnAResponsive();
+        btnAResponsive(i);
         i++;
         if (i > 6) {
             return;
@@ -1266,29 +1292,27 @@ document.getElementById('btnA').addEventListener('touchstart', (i) => {
     }
 });
 document.getElementById('btnS').addEventListener('touchstar', (i) => {
-    btnSResponsive();
-    i=0;
+    i = 0;
     while (teclas.s.pulsada && ultimaTecla == 's') {
-        btnSResponsive();
+        btnSResponsive(i);
         i++;
-        if(i>6){
+        if (i > 6) {
             return;
         }
     }
 });
 document.getElementById('btnD').addEventListener('touchstart', (i) => {
-    btnDResponsive();
-    i=0;
+    i = 0;
     while (teclas.d.pulsada && ultimaTecla == 'd') {
-        btnDResponsive();
+        btnDResponsive(i);
         i++;
-        if(i>6){
+        if (i > 6) {
             return;
         }
     }
 });
 
-function btnWResponsive() {
+function btnWResponsive(i) {
     teclas.w.pulsada = true;
     teclas.a.pulsada = false;
     teclas.s.pulsada = false;
@@ -1306,25 +1330,27 @@ function btnWResponsive() {
 
 
     } if (batallaEmpezada) {
-        if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
-            document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
-        } else {
-            if (recuadroHeroe.letra == 'A') {
-                console.log('Te sales de la batalla');
+        if (i == 6) {
+            if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
+                document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
+            } else {
+                if (recuadroHeroe.letra == 'A') {
+                    console.log('Te sales de la batalla');
+                }
+                if (recuadroHeroe.letra == 'B') {
+                    recuadroHeroe.letra = 'A';
+                }
+                if (recuadroHeroe.letra == 'C') {
+                    recuadroHeroe.letra = 'B';
+                }
+                contTurnoHeroe++;
+                TurnoBatalla++;
             }
-            if (recuadroHeroe.letra == 'B') {
-                recuadroHeroe.letra = 'A';
-            }
-            if (recuadroHeroe.letra == 'C') {
-                recuadroHeroe.letra = 'B';
-            }
-            contTurnoHeroe++;
-            TurnoBatalla++;
+            animacionBatalla(enemigo);
         }
-        animacionBatalla(enemigo);
     }
 }
-function btnAResponsive() {
+function btnAResponsive(i) {
     teclas.w.pulsada = false;
     teclas.a.pulsada = true;
     teclas.s.pulsada = false;
@@ -1341,21 +1367,23 @@ function btnAResponsive() {
         }
 
     } if (batallaEmpezada) {
-        if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
-            document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
-        } else {
-            if (recuadroHeroe.numero == 0) {
-                console.log('Te sales de la batalla');
+        if (i == 6) {
+            if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
+                document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
             } else {
-                recuadroHeroe.numero--;
+                if (recuadroHeroe.numero == 0) {
+                    console.log('Te sales de la batalla');
+                } else {
+                    recuadroHeroe.numero--;
+                }
+                contTurnoHeroe++;
+                TurnoBatalla++;
             }
-            contTurnoHeroe++;
-            TurnoBatalla++;
+            animacionBatalla(enemigo);
         }
-        animacionBatalla(enemigo);
     }
 }
-function btnSResponsive() {
+function btnSResponsive(i) {
     teclas.w.pulsada = false;
     teclas.a.pulsada = false;
     teclas.s.pulsada = true;
@@ -1371,25 +1399,27 @@ function btnSResponsive() {
         }
 
     } if (batallaEmpezada) {
-        if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
-            document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
-        } else {
-            if (recuadroHeroe.letra == 'C') {
-                console.log('Te sales de la batalla');
+        if (i == 6) {
+            if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
+                document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
+            } else {
+                if (recuadroHeroe.letra == 'C') {
+                    console.log('Te sales de la batalla');
+                }
+                if (recuadroHeroe.letra == 'B') {
+                    recuadroHeroe.letra = 'C';
+                }
+                if (recuadroHeroe.letra == 'A') {
+                    recuadroHeroe.letra = 'B';
+                }
+                contTurnoHeroe++;
+                TurnoBatalla++;
             }
-            if (recuadroHeroe.letra == 'B') {
-                recuadroHeroe.letra = 'C';
-            }
-            if (recuadroHeroe.letra == 'A') {
-                recuadroHeroe.letra = 'B';
-            }
-            contTurnoHeroe++;
-            TurnoBatalla++;
+            animacionBatalla(enemigo);
         }
-        animacionBatalla(enemigo);
     }
 }
-function btnDResponsive() {
+function btnDResponsive(i) {
     teclas.w.pulsada = false;
     teclas.a.pulsada = false;
     teclas.s.pulsada = false;
@@ -1405,18 +1435,20 @@ function btnDResponsive() {
         }
 
     } if (batallaEmpezada) {
-        if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
-            document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
-        } else {
-            if (recuadroHeroe.numero == 7) {
-                console.log('Te sales de la batalla');
+        if (i == 6) {
+            if (contTurnoHeroe == 1 && contTurnoEnemigo <= 0) {
+                document.querySelector('#cajaDialogos').innerHTML = 'Turno Enemigo';
             } else {
-                recuadroHeroe.numero++;
+                if (recuadroHeroe.numero == 7) {
+                    console.log('Te sales de la batalla');
+                } else {
+                    recuadroHeroe.numero++;
+                }
+                contTurnoHeroe++;
+                TurnoBatalla++;
             }
-            contTurnoHeroe++;
-            TurnoBatalla++;
+            animacionBatalla(enemigo);
         }
-        animacionBatalla(enemigo);
     }
 }
 function btnKResponsive() {
